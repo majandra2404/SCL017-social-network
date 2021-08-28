@@ -28,8 +28,8 @@ export const muro = () =>{
 
 
   <section class="crear-post" id="section-post">
-    <form id="form">
-      <textarea name="" id="text-input" class="texto-input" cols="30" rows="5" >
+    <form class="form" id="form">
+      <textarea name="" id="texto-input" class="texto-input" wrap="hard" maxlength="500" >
     
       </textarea>
       <button type="submit" class="btn-send" id="btn-send">
@@ -46,11 +46,12 @@ export const muro = () =>{
     signOutBtn.addEventListener('click' , ()=>{
       signOutSubmit();
     });
+
     const formulario = container.querySelector('#form');
     formulario.addEventListener('submit',(event)=>{
       event.preventDefault();
 
-      const textarea = container.querySelector('#text-input');
+      const textarea = container.querySelector('#texto-input');
       console.log(textarea.value);
       addNoteOnSubmit(textarea.value);
       formulario.reset();
@@ -58,7 +59,7 @@ export const muro = () =>{
 
     });
 
-// Usamos INSERTBEFORE para agregar el archivo notas.js
+// Usamos INSERTBEFORE para agregar las PUBLICACIONES al muro
   const crearPost = container.querySelector('#section-post');
   container.insertBefore(notas() , crearPost);
     

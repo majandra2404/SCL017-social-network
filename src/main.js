@@ -4,13 +4,16 @@ import { cambioRuta } from './controller/router.js';
 import { changeHash } from './controller/view-controller.js';
 
 
+
  firebase.auth().onAuthStateChanged((user) => {
-  if(user) {
-    
+  if (user) {
+
     changeHash('/home');
-    
+
   } else {
+     
     changeHash('#/');
+
   }
 });
 
@@ -28,6 +31,3 @@ const init = () =>{
 
 
 window.addEventListener('load', init);
-
-
-

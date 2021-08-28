@@ -68,14 +68,12 @@
 
 .crear-post{
   grid-area: footer;
-  justify-self: center;
-
-
-}
-
-textarea{
+  justify-self: stretch;
   width: 100%;
+
+
 }
+
 
 
 

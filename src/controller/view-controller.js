@@ -4,18 +4,6 @@ import {signIn, logIn, googleLogin, saveUsers, signOut,addNote} from './firebase
 
 
 
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-
-    console.log(user , 'estamos logueados');
-
-  } else {
-     
-    console.log(user , 'NO estamos logueados');
-    
-
-  }
-});
 
 export const changeHash = (hash) => {
   location.hash = hash;
@@ -71,7 +59,30 @@ export const signOutSubmit = () => {
 };
 export const addNoteOnSubmit = (post) => {
 
-    addNote(post)
+
+ addNote(post)
+    console.log(post);
      
 };
 
+export const feedUpdate = (callback) => {
+  const db = firebase.firestore();
+  db.collection('notes').orderBy ("date").onSnapshot(callback);
+   
+};
+
+export const deletePost = (id) => {
+  const db = firebase.firestore();
+  db.collection("notes").doc(id).delete();
+}
+
+export const getPost=(id)=> {
+  const db=firebase.firestore();
+  return db.collection("notes").doc(id).get();
+
+
+}
+export const updatePost = (id) => {
+  const db = firebase.firestore();
+  db.collection("notes").doc(id).update();
+}
