@@ -31,6 +31,7 @@ export const addNote = (textNewNote) => {
   db.collection('notes').add({
   uid:user.uid,
   user: user.displayName,
+  email: user.email,
   date: firebase.firestore.Timestamp.fromDate(new Date()), 
   textNewNote,
   

@@ -80,9 +80,4 @@ export const getPost=(id)=> {
   const db=firebase.firestore();
   return db.collection("notes").doc(id).get();
 
-
-}
-export const updatePost = (id) => {
-  const db = firebase.firestore();
-  db.collection("notes").doc(id).update();
 }
